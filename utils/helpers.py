@@ -7,7 +7,7 @@ import json
 import hashlib
 import ipaddress
 from datetime import datetime, timedelta
-from typing import Dict, List, Any, Optional, Union
+from typing import Dict, List, Any, Optional, Union, Tuple
 import uuid
 
 def validate_hostname(hostname: str) -> bool:
@@ -104,7 +104,7 @@ def parse_time_range(time_str: str) -> Optional[datetime]:
     
     return None
 
-def calculate_time_ago(timestamp: datetime) -> str:
+def calculate_time_ago(timestamp: Union[datetime, str]) -> str:
     """Calculate human-readable time ago string"""
     if not timestamp:
         return "Unknown"
@@ -161,7 +161,7 @@ def sanitize_string(text: str, max_length: int = 255) -> str:
     
     return sanitized[:max_length] if len(sanitized) > max_length else sanitized
 
-def validate_json(json_str: str) -> tuple[bool, Optional[dict]]:
+def validate_json(json_str: str) -> Tuple[bool, Optional[dict]]:
     """Validate JSON string and return parsed data"""
     try:
         data = json.loads(json_str)
@@ -465,7 +465,7 @@ def validate_agent_version(version: str) -> bool:
         return False
     
     # Version format: X.Y.Z or X.Y.Z.W
-    pattern = r'^\d+\.\d+\.\d+(\.\d+)?
+    pattern = r'^\d+\.\d+\.\d+(\.\d+)?$'
     return bool(re.match(pattern, version))
 
 def compare_versions(version1: str, version2: str) -> int:
@@ -545,7 +545,7 @@ class DataValidator:
     """Data validation utility class"""
     
     @staticmethod
-    def validate_required_fields(data: Dict, required_fields: List[str]) -> tuple[bool, List[str]]:
+    def validate_required_fields(data: Dict, required_fields: List[str]) -> Tuple[bool, List[str]]:
         """Validate required fields in data"""
         missing_fields = []
         
@@ -556,7 +556,7 @@ class DataValidator:
         return len(missing_fields) == 0, missing_fields
     
     @staticmethod
-    def validate_field_types(data: Dict, field_types: Dict[str, type]) -> tuple[bool, List[str]]:
+    def validate_field_types(data: Dict, field_types: Dict[str, type]) -> Tuple[bool, List[str]]:
         """Validate field types"""
         type_errors = []
         
@@ -568,7 +568,7 @@ class DataValidator:
         return len(type_errors) == 0, type_errors
     
     @staticmethod
-    def validate_string_length(data: Dict, length_limits: Dict[str, int]) -> tuple[bool, List[str]]:
+    def validate_string_length(data: Dict, length_limits: Dict[str, int]) -> Tuple[bool, List[str]]:
         """Validate string field lengths"""
         length_errors = []
         

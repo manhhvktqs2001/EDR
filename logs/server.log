@@ -1,0 +1,49 @@
+2025-06-06 20:44:27 - root - INFO - Logging initialized - Level: INFO
+2025-06-06 20:44:27 - root - INFO - Log file: logs/server.log
+2025-06-06 20:44:27 - root - INFO - ============================================================
+2025-06-06 20:44:27 - root - INFO - 🚀 Starting EDR Server
+2025-06-06 20:44:27 - root - INFO - ============================================================
+2025-06-06 20:44:27 - database.connection - INFO - Connected to database: MANH/EDR_System
+2025-06-06 20:44:27 - root - INFO - Database connection test: SUCCESS
+2025-06-06 20:44:27 - database.connection - INFO - Database connection closed
+2025-06-06 20:44:27 - root - INFO - ✅ Flask application created
+2025-06-06 20:44:27 - root - INFO - ✅ Routes and error handlers configured
+2025-06-06 20:44:27 - root - INFO - All API blueprints registered successfully
+2025-06-06 20:44:27 - root - INFO - ✅ API blueprints registered
+2025-06-06 20:44:27 - database.connection - INFO - Connected to database: MANH/EDR_System
+2025-06-06 20:44:27 - database.connection - INFO - Connected to database: MANH/EDR_System
+2025-06-06 20:44:27 - database.connection - INFO - Connected to database: MANH/EDR_System
+2025-06-06 20:44:27 - database.connection - INFO - Connected to database: MANH/EDR_System
+2025-06-06 20:44:27 - database.connection - INFO - Connected to database: MANH/EDR_System
+2025-06-06 20:44:27 - RULE_ENGINE - INFO - STRUCTURED_LOG: {'component': 'RULE_ENGINE', 'event_type': 'rules_refreshed', 'message': 'Rules cache refreshed in 0.06s', 'timestamp': '2025-06-06T20:44:27.868927', 'total_rules': 20, 'load_time': 0.06462407112121582}
+2025-06-06 20:44:27 - RULE_ENGINE - INFO - STRUCTURED_LOG: {'component': 'RULE_ENGINE', 'event_type': 'engine_initialized', 'message': 'Rule engine initialized successfully', 'timestamp': '2025-06-06T20:44:27.869293', 'total_rules': 20}
+2025-06-06 20:44:27 - services.socketio_handler - INFO - SocketIO event handlers registered
+2025-06-06 20:44:27 - root - INFO - SocketIO handlers registered successfully
+2025-06-06 20:44:27 - root - INFO - ✅ SocketIO handlers configured
+2025-06-06 20:44:27 - root - INFO - Background tasks started successfully
+2025-06-06 20:44:27 - root - INFO - ✅ Background tasks started
+2025-06-06 20:44:27 - root - INFO - ============================================================
+2025-06-06 20:44:27 - root - INFO - 🎉 EDR Server started successfully!
+2025-06-06 20:44:27 - root - INFO - 📍 Server URL: http://0.0.0.0:5000
+2025-06-06 20:44:27 - root - INFO - 🔌 SocketIO URL: http://0.0.0.0:5000
+2025-06-06 20:44:27 - root - INFO - 📊 Health Check: http://0.0.0.0:5000/health
+2025-06-06 20:44:27 - root - INFO - ============================================================
+2025-06-06 20:44:27 - database.connection - INFO - Connected to database: MANH/EDR_System
+2025-06-06 20:44:27 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.112.24:5000
+2025-06-06 20:44:27 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-06-06 20:44:27 - database.agents - INFO - Marked 1 agents as offline
+2025-06-06 20:44:27 - root - INFO - Marked 1 agents as offline
+2025-06-06 20:45:27 - database.connection - INFO - Connected to database: MANH/EDR_System
+2025-06-06 20:46:26 - root - INFO - Received signal 2, shutting down...
+2025-06-06 20:46:26 - root - INFO - Starting server cleanup...
+2025-06-06 20:46:26 - services.socketio_handler - INFO - SocketIO handler cleanup completed
+2025-06-06 20:46:26 - root - INFO - Server cleanup completed
+2025-06-06 20:46:26 - root - INFO - Starting server cleanup...
+2025-06-06 20:46:26 - services.socketio_handler - INFO - SocketIO handler cleanup completed
+2025-06-06 20:46:26 - root - INFO - Server cleanup completed
+2025-06-06 20:46:26 - root - INFO - Starting server cleanup...
+2025-06-06 20:46:26 - services.socketio_handler - INFO - SocketIO handler cleanup completed
+2025-06-06 20:46:26 - root - INFO - Server cleanup completed

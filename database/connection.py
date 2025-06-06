@@ -23,6 +23,12 @@ class DatabaseConnection:
         self.lock = threading.Lock()
         self.logger = logging.getLogger(__name__)
         
+        # Ensure logs directory exists
+        import os
+        log_dir = 'logs'
+        if not os.path.exists(log_dir):
+            os.makedirs(log_dir, exist_ok=True)
+        
     def _build_connection_string(self) -> str:
         """Xây dựng connection string"""
         try:
