@@ -16,11 +16,20 @@ from flask import Flask
 from flask_socketio import SocketIO
 from flask_cors import CORS
 
-# Import configurations và utils
-from config import SERVER_SETTINGS, LOGGING_CONFIG
+# Import configurations với error handling
+try:
+    from config import (
+        SERVER_SETTINGS, LOGGING_CONFIG, DATABASE_CONFIG, 
+        SOCKETIO_CONFIG, validate_configuration
+    )
+except ImportError as e:
+    print(f"❌ Configuration import failed: {e}")
+    print("💡 Make sure config.py exists and is properly configured")
+    sys.exit(1)
+
 from utils.logger import setup_logging
 from services.socketio_handler import SocketIOHandler
-from database.connection import DatabaseConnection
+from database.connection import DatabaseConnection, test_database_connection
 
 # Import API blueprints
 from api.agents import agents_api
@@ -28,6 +37,7 @@ from api.alerts import alerts_api
 from api.rules import rules_api
 from api.dashboard import dashboard_api
 from api.logs import logs_api
+from api.auth import auth_api
 
 class EDRServer:
     def __init__(self):
@@ -36,37 +46,56 @@ class EDRServer:
         self.socketio_handler = None
         self.shutdown_event = threading.Event()
         self.background_threads = []
+        self.start_time = time.time()
         
     def create_app(self):
         """Tạo Flask application"""
-        self.app = Flask(__name__)
-        self.app.config['SECRET_KEY'] = 'edr_secret_key_2024'
-        
-        # Enable CORS
-        CORS(self.app, origins="*")
-        
-        # Initialize SocketIO
-        self.socketio = SocketIO(
-            self.app,
-            cors_allowed_origins="*",
-            async_mode='threading',
-            ping_timeout=60,
-            ping_interval=25,
-            logger=False,
-            engineio_logger=False
-        )
-        
-        return self.app
+        try:
+            self.app = Flask(__name__)
+            self.app.config['SECRET_KEY'] = SERVER_SETTINGS['secret_key']
+            
+            # Enable CORS
+            CORS(self.app, 
+                 origins=os.getenv('CORS_ORIGINS', '*'),
+                 methods=['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+                 headers=['Content-Type', 'Authorization'])
+            
+            # Initialize SocketIO
+            self.socketio = SocketIO(
+                self.app,
+                cors_allowed_origins=SOCKETIO_CONFIG['cors_allowed_origins'],
+                async_mode=SOCKETIO_CONFIG['async_mode'],
+                ping_timeout=SOCKETIO_CONFIG['ping_timeout'],
+                ping_interval=SOCKETIO_CONFIG['ping_interval'],
+                logger=False,
+                engineio_logger=False
+            )
+            
+            logging.info("Flask application created successfully")
+            return self.app
+            
+        except Exception as e:
+            logging.error(f"Error creating Flask app: {e}")
+            raise
     
     def register_blueprints(self):
         """Đăng ký các API blueprints"""
         try:
-            self.app.register_blueprint(agents_api)
-            self.app.register_blueprint(alerts_api)
-            self.app.register_blueprint(rules_api)
-            self.app.register_blueprint(dashboard_api)
-            self.app.register_blueprint(logs_api)
+            blueprints = [
+                (agents_api, "Agents API"),
+                (alerts_api, "Alerts API"),
+                (rules_api, "Rules API"),
+                (dashboard_api, "Dashboard API"),
+                (logs_api, "Logs API"),
+                (auth_api, "Auth API")
+            ]
+            
+            for blueprint, name in blueprints:
+                self.app.register_blueprint(blueprint)
+                logging.info(f"Registered {name}")
+            
             logging.info("All API blueprints registered successfully")
+            
         except Exception as e:
             logging.error(f"Error registering blueprints: {e}")
             raise
@@ -77,6 +106,7 @@ class EDRServer:
             self.socketio_handler = SocketIOHandler(self.socketio)
             self.socketio_handler.register_handlers()
             logging.info("SocketIO handlers registered successfully")
+            
         except Exception as e:
             logging.error(f"Error setting up SocketIO handlers: {e}")
             raise
@@ -101,6 +131,15 @@ class EDRServer:
             )
             maintenance_thread.start()
             self.background_threads.append(maintenance_thread)
+            
+            # Token cleanup task
+            token_cleanup_thread = threading.Thread(
+                target=self._token_cleanup_worker,
+                daemon=True,
+                name="TokenCleanup"
+            )
+            token_cleanup_thread.start()
+            self.background_threads.append(token_cleanup_thread)
             
             logging.info("Background tasks started successfully")
             
@@ -164,6 +203,25 @@ class EDRServer:
                     break
                 time.sleep(1)
     
+    def _token_cleanup_worker(self):
+        """Worker để dọn dẹp expired tokens"""
+        from services.auth_service import auth_service
+        
+        while not self.shutdown_event.is_set():
+            try:
+                cleaned_count = auth_service.cleanup_expired_tokens()
+                if cleaned_count > 0:
+                    logging.info(f"Cleaned up {cleaned_count} expired tokens")
+                
+            except Exception as e:
+                logging.error(f"Error in token cleanup worker: {e}")
+            
+            # Sleep for 10 minutes
+            for _ in range(600):
+                if self.shutdown_event.is_set():
+                    break
+                time.sleep(1)
+    
     def setup_routes(self):
         """Setup basic routes"""
         @self.app.route('/')
@@ -173,12 +231,14 @@ class EDRServer:
                 "version": "2.0",
                 "timestamp": datetime.now().isoformat(),
                 "status": "healthy",
+                "uptime_seconds": int(time.time() - self.start_time),
                 "endpoints": {
                     "agents": "/api/agents",
                     "alerts": "/api/alerts", 
                     "rules": "/api/rules",
                     "dashboard": "/api/dashboard",
-                    "logs": "/api/logs"
+                    "logs": "/api/logs",
+                    "auth": "/api/auth"
                 }
             }
         
@@ -187,52 +247,99 @@ class EDRServer:
             """Health check endpoint"""
             try:
                 # Test database connection
-                db = DatabaseConnection()
-                db.connect()
-                db_status = "healthy"
-                db.close()
-            except Exception as e:
-                db_status = f"error: {str(e)}"
-            
-            return {
-                "status": "healthy" if db_status == "healthy" else "degraded",
-                "timestamp": datetime.now().isoformat(),
-                "components": {
-                    "database": db_status,
+                db_healthy, db_message = test_database_connection()
+                
+                # Check components
+                components = {
+                    "database": "healthy" if db_healthy else f"error: {db_message}",
                     "socketio": "healthy",
-                    "api": "healthy"
-                },
-                "uptime": time.time() - self.start_time if hasattr(self, 'start_time') else 0
-            }
+                    "api": "healthy",
+                    "background_tasks": "healthy" if len(self.background_threads) > 0 else "warning"
+                }
+                
+                overall_status = "healthy" if all("healthy" in status for status in components.values()) else "degraded"
+                
+                return {
+                    "status": overall_status,
+                    "timestamp": datetime.now().isoformat(),
+                    "components": components,
+                    "uptime_seconds": int(time.time() - self.start_time),
+                    "active_connections": self.socketio_handler.get_connected_agents_summary()['total_connected'] if self.socketio_handler else 0
+                }
+                
+            except Exception as e:
+                logging.error(f"Health check error: {e}")
+                return {
+                    "status": "error",
+                    "error": str(e),
+                    "timestamp": datetime.now().isoformat()
+                }, 500
+        
+        @self.app.route('/api/status')
+        def server_status():
+            """Detailed server status"""
+            try:
+                from services.auth_service import auth_service
+                
+                status = {
+                    "server_info": {
+                        "version": "2.0",
+                        "uptime_seconds": int(time.time() - self.start_time),
+                        "start_time": datetime.fromtimestamp(self.start_time).isoformat()
+                    },
+                    "connections": self.socketio_handler.get_connected_agents_summary() if self.socketio_handler else {},
+                    "authentication": auth_service.get_auth_statistics(),
+                    "background_tasks": {
+                        "active_threads": len([t for t in self.background_threads if t.is_alive()]),
+                        "total_threads": len(self.background_threads)
+                    }
+                }
+                
+                return status
+                
+            except Exception as e:
+                logging.error(f"Status endpoint error: {e}")
+                return {"error": str(e)}, 500
     
     def setup_error_handlers(self):
         """Setup error handlers"""
         @self.app.errorhandler(404)
         def not_found(error):
-            return {"error": "Endpoint not found", "code": 404}, 404
+            return {
+                "error": "Endpoint not found", 
+                "code": 404,
+                "timestamp": datetime.now().isoformat()
+            }, 404
         
         @self.app.errorhandler(500)
         def internal_error(error):
             logging.error(f"Internal server error: {error}")
-            return {"error": "Internal server error", "code": 500}, 500
+            return {
+                "error": "Internal server error", 
+                "code": 500,
+                "timestamp": datetime.now().isoformat()
+            }, 500
         
         @self.app.errorhandler(Exception)
         def handle_exception(e):
             logging.error(f"Unhandled exception: {e}", exc_info=True)
-            return {"error": "Unexpected error occurred", "code": 500}, 500
+            return {
+                "error": "Unexpected error occurred", 
+                "code": 500,
+                "timestamp": datetime.now().isoformat()
+            }, 500
     
     def test_database_connection(self):
         """Test database connection"""
         try:
-            db = DatabaseConnection()
-            success = db.connect()
-            if success:
+            db_healthy, db_message = test_database_connection()
+            if db_healthy:
                 logging.info("Database connection test: SUCCESS")
-                db.close()
                 return True
             else:
-                logging.error("Database connection test: FAILED")
+                logging.error(f"Database connection test: FAILED - {db_message}")
                 return False
+                
         except Exception as e:
             logging.error(f"Database connection test failed: {e}")
             return False
@@ -268,18 +375,29 @@ class EDRServer:
     def run(self):
         """Main server run method"""
         try:
-            # Setup logging
+            # Setup logging first
             setup_logging()
-            self.start_time = time.time()
             
             logging.info("="*60)
-            logging.info("🚀 Starting EDR Server")
+            logging.info("🚀 Starting EDR Server v2.0")
             logging.info("="*60)
             
-            # Test database connection first
+            # Validate configuration
+            config_errors = validate_configuration()
+            if config_errors:
+                for error in config_errors:
+                    logging.error(f"Configuration error: {error}")
+                if any("required" in error.lower() for error in config_errors):
+                    logging.error("❌ Critical configuration errors found. Exiting.")
+                    sys.exit(1)
+            
+            # Test database connection
             if not self.test_database_connection():
                 logging.error("❌ Database connection failed. Please check your database configuration.")
-                sys.exit(1)
+                logging.error("💡 Make sure SQL Server is running and EDR_System database exists.")
+                response = input("Continue without database? (y/N): ")
+                if response.lower() != 'y':
+                    sys.exit(1)
             
             # Create Flask app
             self.create_app()
@@ -315,7 +433,8 @@ class EDRServer:
             logging.info("🎉 EDR Server started successfully!")
             logging.info(f"📍 Server URL: http://{host}:{port}")
             logging.info(f"🔌 SocketIO URL: http://{host}:{port}")
-            logging.info(f"📊 Health Check: http://{host}:{port}/health")
+            logging.info(f"📊 Health Check: http://{host}:{port}/api/health")
+            logging.info(f"📈 Server Status: http://{host}:{port}/api/status")
             logging.info("="*60)
             
             # Start the server
@@ -324,7 +443,8 @@ class EDRServer:
                 host=host,
                 port=port,
                 debug=SERVER_SETTINGS.get('debug', False),
-                use_reloader=False
+                use_reloader=False,
+                log_output=True
             )
             
         except KeyboardInterrupt:
