@@ -47,3 +47,461 @@
 2025-06-06 20:46:26 - root - INFO - Starting server cleanup...
 2025-06-06 20:46:26 - services.socketio_handler - INFO - SocketIO handler cleanup completed
 2025-06-06 20:46:26 - root - INFO - Server cleanup completed
+2025-06-07 15:44:45 - root - INFO - Logging initialized - Level: INFO
+2025-06-07 15:44:45 - root - INFO - Log file: logs/server.log
+2025-06-07 15:44:45 - root - INFO - ============================================================
+2025-06-07 15:44:45 - root - INFO - 🚀 Starting EDR Server
+2025-06-07 15:44:45 - root - INFO - ============================================================
+2025-06-07 15:44:46 - database.connection - INFO - Connected to database: MANH/EDR_System
+2025-06-07 15:44:46 - root - INFO - Database connection test: SUCCESS
+2025-06-07 15:44:46 - database.connection - INFO - Database connection closed
+2025-06-07 15:44:46 - root - INFO - ✅ Flask application created
+2025-06-07 15:44:46 - root - INFO - ✅ Routes and error handlers configured
+2025-06-07 15:44:46 - root - INFO - All API blueprints registered successfully
+2025-06-07 15:44:46 - root - INFO - ✅ API blueprints registered
+2025-06-07 15:44:46 - database.connection - INFO - Connected to database: MANH/EDR_System
+2025-06-07 15:44:46 - database.connection - INFO - Connected to database: MANH/EDR_System
+2025-06-07 15:44:46 - database.connection - INFO - Connected to database: MANH/EDR_System
+2025-06-07 15:44:46 - database.connection - INFO - Connected to database: MANH/EDR_System
+2025-06-07 15:44:46 - database.connection - INFO - Connected to database: MANH/EDR_System
+2025-06-07 15:44:46 - RULE_ENGINE - INFO - STRUCTURED_LOG: {'component': 'RULE_ENGINE', 'event_type': 'rules_refreshed', 'message': 'Rules cache refreshed in 0.09s', 'timestamp': '2025-06-07T15:44:46.910350', 'total_rules': 20, 'load_time': 0.08861970901489258}
+2025-06-07 15:44:46 - RULE_ENGINE - INFO - STRUCTURED_LOG: {'component': 'RULE_ENGINE', 'event_type': 'engine_initialized', 'message': 'Rule engine initialized successfully', 'timestamp': '2025-06-07T15:44:46.910903', 'total_rules': 20}
+2025-06-07 15:44:46 - services.socketio_handler - INFO - SocketIO event handlers registered
+2025-06-07 15:44:46 - root - INFO - SocketIO handlers registered successfully
+2025-06-07 15:44:46 - root - INFO - ✅ SocketIO handlers configured
+2025-06-07 15:44:46 - root - INFO - Background tasks started successfully
+2025-06-07 15:44:46 - root - INFO - ✅ Background tasks started
+2025-06-07 15:44:46 - root - INFO - ============================================================
+2025-06-07 15:44:46 - root - INFO - 🎉 EDR Server started successfully!
+2025-06-07 15:44:46 - root - INFO - 📍 Server URL: http://0.0.0.0:5000
+2025-06-07 15:44:46 - root - INFO - 🔌 SocketIO URL: http://0.0.0.0:5000
+2025-06-07 15:44:46 - root - INFO - 📊 Health Check: http://0.0.0.0:5000/health
+2025-06-07 15:44:46 - root - INFO - ============================================================
+2025-06-07 15:44:46 - database.connection - INFO - Connected to database: MANH/EDR_System
+2025-06-07 15:44:46 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.215.24:5000
+2025-06-07 15:44:46 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-06-07 15:45:46 - database.connection - INFO - Connected to database: MANH/EDR_System
+2025-06-07 15:47:38 - database.connection - INFO - Connected to database: MANH/EDR_System
+2025-06-07 15:48:38 - database.connection - INFO - Connected to database: MANH/EDR_System
+2025-06-07 15:48:48 - werkzeug - INFO - 192.168.215.24 - - [07/Jun/2025 15:48:48] "GET / HTTP/1.1" 200 -
+2025-06-07 15:49:05 - root - ERROR - Unhandled exception: 400 Bad Request: The browser (or proxy) sent a request that this server could not understand.
+Traceback (most recent call last):
+  File "C:\Users\manhh\Desktop\edr_server\venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\manhh\Desktop\edr_server\venv\Lib\site-packages\flask\app.py", line 891, in dispatch_request
+    self.raise_routing_exception(req)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\manhh\Desktop\edr_server\venv\Lib\site-packages\flask\app.py", line 500, in raise_routing_exception
+    raise request.routing_exception  # type: ignore[misc]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\manhh\Desktop\edr_server\venv\Lib\site-packages\flask\ctx.py", line 362, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+  File "C:\Users\manhh\Desktop\edr_server\venv\Lib\site-packages\werkzeug\routing\map.py", line 627, in match
+    raise WebsocketMismatch() from None
+werkzeug.routing.exceptions.WebsocketMismatch: 400 Bad Request: The browser (or proxy) sent a request that this server could not understand.
+2025-06-07 15:49:05 - werkzeug - INFO - 192.168.215.24 - - [07/Jun/2025 15:49:05] "[35m[1mGET / HTTP/1.1[0m" 500 -
+2025-06-07 15:49:06 - werkzeug - INFO - 192.168.215.24 - - [07/Jun/2025 15:49:06] "[33mGET /loginMsg.js HTTP/1.1[0m" 404 -
+2025-06-07 15:49:06 - werkzeug - INFO - 192.168.215.24 - - [07/Jun/2025 15:49:06] "[33mGET /cgi/get.cgi?cmd=home_login HTTP/1.1[0m" 404 -
+2025-06-07 15:49:12 - werkzeug - INFO - 192.168.215.24 - - [07/Jun/2025 15:49:12] "[33mGET /rootDesc.xml HTTP/1.1[0m" 404 -
+2025-06-07 15:49:38 - database.connection - INFO - Connected to database: MANH/EDR_System
+2025-06-07 15:50:38 - database.connection - INFO - Connected to database: MANH/EDR_System
+2025-06-07 15:50:42 - root - INFO - Received signal 2, shutting down...
+2025-06-07 15:50:42 - root - INFO - Starting server cleanup...
+2025-06-07 15:50:43 - services.socketio_handler - INFO - SocketIO handler cleanup completed
+2025-06-07 15:50:43 - root - INFO - Server cleanup completed
+2025-06-07 15:50:43 - root - INFO - Starting server cleanup...
+2025-06-07 15:50:43 - services.socketio_handler - INFO - SocketIO handler cleanup completed
+2025-06-07 15:50:43 - root - INFO - Server cleanup completed
+2025-06-07 15:50:43 - root - INFO - Starting server cleanup...
+2025-06-07 15:50:43 - services.socketio_handler - INFO - SocketIO handler cleanup completed
+2025-06-07 15:50:43 - root - INFO - Server cleanup completed
+2025-06-07 15:50:46 - root - INFO - Logging initialized - Level: INFO
+2025-06-07 15:50:46 - root - INFO - Log file: logs/server.log
+2025-06-07 15:50:46 - root - INFO - ============================================================
+2025-06-07 15:50:46 - root - INFO - 🚀 Starting EDR Server
+2025-06-07 15:50:46 - root - INFO - ============================================================
+2025-06-07 15:50:46 - database.connection - INFO - Connected to database: MANH/EDR_System
+2025-06-07 15:50:46 - root - INFO - Database connection test: SUCCESS
+2025-06-07 15:50:46 - database.connection - INFO - Database connection closed
+2025-06-07 15:50:46 - root - INFO - ✅ Flask application created
+2025-06-07 15:50:46 - root - INFO - ✅ Routes and error handlers configured
+2025-06-07 15:50:46 - root - INFO - All API blueprints registered successfully
+2025-06-07 15:50:46 - root - INFO - ✅ API blueprints registered
+2025-06-07 15:50:46 - database.connection - INFO - Connected to database: MANH/EDR_System
+2025-06-07 15:50:46 - database.connection - INFO - Connected to database: MANH/EDR_System
+2025-06-07 15:50:46 - database.connection - INFO - Connected to database: MANH/EDR_System
+2025-06-07 15:50:46 - database.connection - INFO - Connected to database: MANH/EDR_System
+2025-06-07 15:50:46 - database.connection - INFO - Connected to database: MANH/EDR_System
+2025-06-07 15:50:47 - RULE_ENGINE - INFO - STRUCTURED_LOG: {'component': 'RULE_ENGINE', 'event_type': 'rules_refreshed', 'message': 'Rules cache refreshed in 0.05s', 'timestamp': '2025-06-07T15:50:47.049026', 'total_rules': 20, 'load_time': 0.04938387870788574}
+2025-06-07 15:50:47 - RULE_ENGINE - INFO - STRUCTURED_LOG: {'component': 'RULE_ENGINE', 'event_type': 'engine_initialized', 'message': 'Rule engine initialized successfully', 'timestamp': '2025-06-07T15:50:47.049567', 'total_rules': 20}
+2025-06-07 15:50:47 - services.socketio_handler - INFO - SocketIO event handlers registered
+2025-06-07 15:50:47 - root - INFO - SocketIO handlers registered successfully
+2025-06-07 15:50:47 - root - INFO - ✅ SocketIO handlers configured
+2025-06-07 15:50:47 - root - INFO - Background tasks started successfully
+2025-06-07 15:50:47 - root - INFO - ✅ Background tasks started
+2025-06-07 15:50:47 - root - INFO - ============================================================
+2025-06-07 15:50:47 - root - INFO - 🎉 EDR Server started successfully!
+2025-06-07 15:50:47 - root - INFO - 📍 Server URL: http://0.0.0.0:5000
+2025-06-07 15:50:47 - root - INFO - 🔌 SocketIO URL: http://0.0.0.0:5000
+2025-06-07 15:50:47 - root - INFO - 📊 Health Check: http://0.0.0.0:5000/health
+2025-06-07 15:50:47 - root - INFO - ============================================================
+2025-06-07 15:50:47 - database.connection - INFO - Connected to database: MANH/EDR_System
+2025-06-07 15:50:47 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.215.24:5000
+2025-06-07 15:50:47 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-06-07 15:51:47 - database.connection - INFO - Connected to database: MANH/EDR_System
+2025-06-07 15:52:47 - database.connection - INFO - Connected to database: MANH/EDR_System
+2025-06-07 15:53:47 - database.connection - INFO - Connected to database: MANH/EDR_System
+2025-06-07 15:54:47 - database.connection - INFO - Connected to database: MANH/EDR_System
+2025-06-07 15:55:47 - database.connection - INFO - Connected to database: MANH/EDR_System
+2025-06-07 15:55:57 - root - INFO - Received signal 2, shutting down...
+2025-06-07 15:55:57 - root - INFO - Starting server cleanup...
+2025-06-07 15:55:58 - services.socketio_handler - INFO - SocketIO handler cleanup completed
+2025-06-07 15:55:58 - root - INFO - Server cleanup completed
+2025-06-07 15:55:58 - root - INFO - Starting server cleanup...
+2025-06-07 15:55:58 - services.socketio_handler - INFO - SocketIO handler cleanup completed
+2025-06-07 15:55:58 - root - INFO - Server cleanup completed
+2025-06-07 15:55:58 - root - INFO - Starting server cleanup...
+2025-06-07 15:55:58 - services.socketio_handler - INFO - SocketIO handler cleanup completed
+2025-06-07 15:55:58 - root - INFO - Server cleanup completed
+2025-06-07 16:17:27 - root - INFO - Logging initialized - Level: INFO
+2025-06-07 16:17:27 - root - INFO - Log file: logs/server.log
+2025-06-07 16:17:27 - root - INFO - ============================================================
+2025-06-07 16:17:27 - root - INFO - 🚀 Starting EDR Server
+2025-06-07 16:17:27 - root - INFO - ============================================================
+2025-06-07 16:17:27 - database.connection - INFO - Connected to database: MANH/EDR_System
+2025-06-07 16:17:27 - root - INFO - Database connection test: SUCCESS
+2025-06-07 16:17:27 - database.connection - INFO - Database connection closed
+2025-06-07 16:17:27 - root - INFO - ✅ Flask application created
+2025-06-07 16:17:27 - root - INFO - ✅ Routes and error handlers configured
+2025-06-07 16:17:27 - root - INFO - All API blueprints registered successfully
+2025-06-07 16:17:27 - root - INFO - ✅ API blueprints registered
+2025-06-07 16:17:27 - database.connection - INFO - Connected to database: MANH/EDR_System
+2025-06-07 16:17:27 - database.connection - INFO - Connected to database: MANH/EDR_System
+2025-06-07 16:17:27 - database.connection - INFO - Connected to database: MANH/EDR_System
+2025-06-07 16:17:27 - database.connection - INFO - Connected to database: MANH/EDR_System
+2025-06-07 16:17:27 - database.connection - INFO - Connected to database: MANH/EDR_System
+2025-06-07 16:17:27 - RULE_ENGINE - INFO - STRUCTURED_LOG: {'component': 'RULE_ENGINE', 'event_type': 'rules_refreshed', 'message': 'Rules cache refreshed in 0.05s', 'timestamp': '2025-06-07T16:17:27.876594', 'total_rules': 20, 'load_time': 0.04803752899169922}
+2025-06-07 16:17:27 - RULE_ENGINE - INFO - STRUCTURED_LOG: {'component': 'RULE_ENGINE', 'event_type': 'engine_initialized', 'message': 'Rule engine initialized successfully', 'timestamp': '2025-06-07T16:17:27.877114', 'total_rules': 20}
+2025-06-07 16:17:27 - services.socketio_handler - INFO - SocketIO event handlers registered
+2025-06-07 16:17:27 - root - INFO - SocketIO handlers registered successfully
+2025-06-07 16:17:27 - root - INFO - ✅ SocketIO handlers configured
+2025-06-07 16:17:27 - root - INFO - Background tasks started successfully
+2025-06-07 16:17:27 - root - INFO - ✅ Background tasks started
+2025-06-07 16:17:27 - root - INFO - ============================================================
+2025-06-07 16:17:27 - root - INFO - 🎉 EDR Server started successfully!
+2025-06-07 16:17:27 - root - INFO - 📍 Server URL: http://0.0.0.0:5000
+2025-06-07 16:17:27 - root - INFO - 🔌 SocketIO URL: http://0.0.0.0:5000
+2025-06-07 16:17:27 - root - INFO - 📊 Health Check: http://0.0.0.0:5000/health
+2025-06-07 16:17:27 - root - INFO - ============================================================
+2025-06-07 16:17:27 - database.connection - INFO - Connected to database: MANH/EDR_System
+2025-06-07 16:17:27 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.215.24:5000
+2025-06-07 16:17:27 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-06-07 16:17:35 - werkzeug - INFO - 192.168.20.133 - - [07/Jun/2025 16:17:35] "[33mGET /api/health HTTP/1.1[0m" 404 -
+2025-06-07 16:17:35 - werkzeug - INFO - 192.168.20.133 - - [07/Jun/2025 16:17:35] "[33mGET /api/health HTTP/1.1[0m" 404 -
+2025-06-07 16:17:35 - werkzeug - INFO - 192.168.20.133 - - [07/Jun/2025 16:17:35] "[33mPOST /api/agents/register HTTP/1.1[0m" 404 -
+2025-06-07 16:17:35 - werkzeug - INFO - 192.168.20.133 - - [07/Jun/2025 16:17:35] "[33mPOST /api/agents/register HTTP/1.1[0m" 404 -
+2025-06-07 16:17:41 - werkzeug - INFO - 192.168.20.133 - - [07/Jun/2025 16:17:41] "[33mGET /api/health HTTP/1.1[0m" 404 -
+2025-06-07 16:17:41 - werkzeug - INFO - 192.168.20.133 - - [07/Jun/2025 16:17:41] "[33mGET /api/health HTTP/1.1[0m" 404 -
+2025-06-07 16:18:27 - database.connection - INFO - Connected to database: MANH/EDR_System
+2025-06-07 16:19:27 - database.connection - INFO - Connected to database: MANH/EDR_System
+2025-06-07 16:20:27 - database.connection - INFO - Connected to database: MANH/EDR_System
+2025-06-07 16:20:30 - werkzeug - INFO - 192.168.20.133 - - [07/Jun/2025 16:20:30] "[33mGET /api/health HTTP/1.1[0m" 404 -
+2025-06-07 16:20:31 - werkzeug - INFO - 192.168.20.133 - - [07/Jun/2025 16:20:31] "[33mPOST /api/agents/register HTTP/1.1[0m" 404 -
+2025-06-07 16:20:33 - werkzeug - INFO - 192.168.20.133 - - [07/Jun/2025 16:20:33] "[33mGET /api/health HTTP/1.1[0m" 404 -
+2025-06-07 16:20:33 - werkzeug - INFO - 192.168.20.133 - - [07/Jun/2025 16:20:33] "[33mPOST /api/agents/register HTTP/1.1[0m" 404 -
+2025-06-07 16:20:38 - werkzeug - INFO - 192.168.20.133 - - [07/Jun/2025 16:20:38] "[33mGET /api/health HTTP/1.1[0m" 404 -
+2025-06-07 16:20:39 - werkzeug - INFO - 192.168.20.133 - - [07/Jun/2025 16:20:39] "[33mGET /api/health HTTP/1.1[0m" 404 -
+2025-06-07 16:21:28 - database.connection - INFO - Connected to database: MANH/EDR_System
+2025-06-07 16:22:28 - database.connection - INFO - Connected to database: MANH/EDR_System
+2025-06-07 16:23:28 - database.connection - INFO - Connected to database: MANH/EDR_System
+2025-06-07 16:24:28 - database.connection - INFO - Connected to database: MANH/EDR_System
+2025-06-07 16:25:28 - database.connection - INFO - Connected to database: MANH/EDR_System
+2025-06-07 16:26:28 - database.connection - INFO - Connected to database: MANH/EDR_System
+2025-06-07 16:27:28 - database.connection - INFO - Connected to database: MANH/EDR_System
+2025-06-07 16:28:28 - database.connection - INFO - Connected to database: MANH/EDR_System
+2025-06-07 16:29:28 - database.connection - INFO - Connected to database: MANH/EDR_System
+2025-06-07 16:30:28 - database.connection - INFO - Connected to database: MANH/EDR_System
+2025-06-07 16:31:28 - database.connection - INFO - Connected to database: MANH/EDR_System
+2025-06-07 16:32:28 - database.connection - INFO - Connected to database: MANH/EDR_System
+2025-06-07 16:33:28 - database.connection - INFO - Connected to database: MANH/EDR_System
+2025-06-07 16:34:28 - database.connection - INFO - Connected to database: MANH/EDR_System
+2025-06-07 16:35:28 - database.connection - INFO - Connected to database: MANH/EDR_System
+2025-06-07 16:36:28 - database.connection - INFO - Connected to database: MANH/EDR_System
+2025-06-07 16:37:28 - database.connection - INFO - Connected to database: MANH/EDR_System
+2025-06-07 16:38:02 - root - INFO - Received signal 2, shutting down...
+2025-06-07 16:38:02 - root - INFO - Starting server cleanup...
+2025-06-07 16:38:03 - services.socketio_handler - INFO - SocketIO handler cleanup completed
+2025-06-07 16:38:03 - root - INFO - Server cleanup completed
+2025-06-07 16:38:03 - root - INFO - Starting server cleanup...
+2025-06-07 16:38:03 - services.socketio_handler - INFO - SocketIO handler cleanup completed
+2025-06-07 16:38:03 - root - INFO - Server cleanup completed
+2025-06-07 16:38:03 - root - INFO - Starting server cleanup...
+2025-06-07 16:38:03 - services.socketio_handler - INFO - SocketIO handler cleanup completed
+2025-06-07 16:38:03 - root - INFO - Server cleanup completed
+2025-06-07 16:38:06 - root - INFO - Logging initialized - Level: INFO
+2025-06-07 16:38:06 - root - INFO - Log file: logs/server.log
+2025-06-07 16:38:06 - root - INFO - ============================================================
+2025-06-07 16:38:06 - root - INFO - 🚀 Starting EDR Server
+2025-06-07 16:38:06 - root - INFO - ============================================================
+2025-06-07 16:38:06 - database.connection - INFO - Connected to database: MANH/EDR_System
+2025-06-07 16:38:06 - root - INFO - Database connection test: SUCCESS
+2025-06-07 16:38:06 - database.connection - INFO - Database connection closed
+2025-06-07 16:38:06 - root - INFO - ✅ Flask application created
+2025-06-07 16:38:06 - root - INFO - ✅ Routes and error handlers configured
+2025-06-07 16:38:06 - root - INFO - All API blueprints registered successfully
+2025-06-07 16:38:06 - root - INFO - ✅ API blueprints registered
+2025-06-07 16:38:06 - database.connection - INFO - Connected to database: MANH/EDR_System
+2025-06-07 16:38:06 - database.connection - INFO - Connected to database: MANH/EDR_System
+2025-06-07 16:38:06 - database.connection - INFO - Connected to database: MANH/EDR_System
+2025-06-07 16:38:06 - database.connection - INFO - Connected to database: MANH/EDR_System
+2025-06-07 16:38:06 - database.connection - INFO - Connected to database: MANH/EDR_System
+2025-06-07 16:38:06 - RULE_ENGINE - INFO - STRUCTURED_LOG: {'component': 'RULE_ENGINE', 'event_type': 'rules_refreshed', 'message': 'Rules cache refreshed in 0.03s', 'timestamp': '2025-06-07T16:38:06.559105', 'total_rules': 20, 'load_time': 0.032350778579711914}
+2025-06-07 16:38:06 - RULE_ENGINE - INFO - STRUCTURED_LOG: {'component': 'RULE_ENGINE', 'event_type': 'engine_initialized', 'message': 'Rule engine initialized successfully', 'timestamp': '2025-06-07T16:38:06.559765', 'total_rules': 20}
+2025-06-07 16:38:06 - services.socketio_handler - INFO - SocketIO event handlers registered
+2025-06-07 16:38:06 - root - INFO - SocketIO handlers registered successfully
+2025-06-07 16:38:06 - root - INFO - ✅ SocketIO handlers configured
+2025-06-07 16:38:06 - root - INFO - Background tasks started successfully
+2025-06-07 16:38:06 - root - INFO - ✅ Background tasks started
+2025-06-07 16:38:06 - root - INFO - ============================================================
+2025-06-07 16:38:06 - root - INFO - 🎉 EDR Server started successfully!
+2025-06-07 16:38:06 - root - INFO - 📍 Server URL: http://0.0.0.0:5000
+2025-06-07 16:38:06 - root - INFO - 🔌 SocketIO URL: http://0.0.0.0:5000
+2025-06-07 16:38:06 - root - INFO - 📊 Health Check: http://0.0.0.0:5000/health
+2025-06-07 16:38:06 - root - INFO - ============================================================
+2025-06-07 16:38:06 - database.connection - INFO - Connected to database: MANH/EDR_System
+2025-06-07 16:38:06 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.215.24:5000
+2025-06-07 16:38:06 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-06-07 16:38:18 - database.connection - INFO - Connected to database: MANH/EDR_System
+2025-06-07 16:38:18 - database.connection - INFO - Database connection closed
+2025-06-07 16:38:18 - werkzeug - INFO - 192.168.20.133 - - [07/Jun/2025 16:38:18] "GET /api/health HTTP/1.1" 200 -
+2025-06-07 16:38:18 - werkzeug - INFO - 192.168.20.133 - - [07/Jun/2025 16:38:18] "[33mPOST /api/agents/register HTTP/1.1[0m" 404 -
+2025-06-07 16:38:20 - database.connection - INFO - Connected to database: MANH/EDR_System
+2025-06-07 16:38:20 - database.connection - INFO - Database connection closed
+2025-06-07 16:38:20 - werkzeug - INFO - 192.168.20.133 - - [07/Jun/2025 16:38:20] "GET /api/health HTTP/1.1" 200 -
+2025-06-07 16:38:20 - werkzeug - INFO - 192.168.20.133 - - [07/Jun/2025 16:38:20] "[33mPOST /api/agents/register HTTP/1.1[0m" 404 -
+2025-06-07 16:38:26 - database.connection - INFO - Connected to database: MANH/EDR_System
+2025-06-07 16:38:26 - database.connection - INFO - Database connection closed
+2025-06-07 16:38:26 - werkzeug - INFO - 192.168.20.133 - - [07/Jun/2025 16:38:26] "GET /api/health HTTP/1.1" 200 -
+2025-06-07 16:38:28 - database.connection - INFO - Connected to database: MANH/EDR_System
+2025-06-07 16:38:28 - database.connection - INFO - Database connection closed
+2025-06-07 16:38:28 - werkzeug - INFO - 192.168.20.133 - - [07/Jun/2025 16:38:28] "GET /api/health HTTP/1.1" 200 -
+2025-06-07 16:39:06 - database.connection - INFO - Connected to database: MANH/EDR_System
+2025-06-07 16:40:06 - database.connection - INFO - Connected to database: MANH/EDR_System
+2025-06-07 16:41:06 - database.connection - INFO - Connected to database: MANH/EDR_System
+2025-06-07 16:42:06 - database.connection - INFO - Connected to database: MANH/EDR_System
+2025-06-07 16:42:45 - root - INFO - Received signal 2, shutting down...
+2025-06-07 16:42:45 - root - INFO - Starting server cleanup...
+2025-06-07 16:42:46 - services.socketio_handler - INFO - SocketIO handler cleanup completed
+2025-06-07 16:42:46 - root - INFO - Server cleanup completed
+2025-06-07 16:42:46 - root - INFO - Starting server cleanup...
+2025-06-07 16:42:46 - services.socketio_handler - INFO - SocketIO handler cleanup completed
+2025-06-07 16:42:46 - root - INFO - Server cleanup completed
+2025-06-07 16:42:46 - root - INFO - Starting server cleanup...
+2025-06-07 16:42:46 - services.socketio_handler - INFO - SocketIO handler cleanup completed
+2025-06-07 16:42:46 - root - INFO - Server cleanup completed
+2025-06-07 16:42:49 - root - INFO - Logging initialized - Level: INFO
+2025-06-07 16:42:49 - root - INFO - Log file: logs/server.log
+2025-06-07 16:42:49 - root - INFO - ============================================================
+2025-06-07 16:42:49 - root - INFO - 🚀 Starting EDR Server
+2025-06-07 16:42:49 - root - INFO - ============================================================
+2025-06-07 16:42:49 - database.connection - INFO - Connected to database: MANH/EDR_System
+2025-06-07 16:42:49 - root - INFO - Database connection test: SUCCESS
+2025-06-07 16:42:49 - database.connection - INFO - Database connection closed
+2025-06-07 16:42:49 - root - INFO - ✅ Flask application created
+2025-06-07 16:42:49 - root - INFO - ✅ Routes and error handlers configured
+2025-06-07 16:42:49 - root - INFO - All API blueprints registered successfully
+2025-06-07 16:42:49 - root - INFO - ✅ API blueprints registered
+2025-06-07 16:42:49 - database.connection - INFO - Connected to database: MANH/EDR_System
+2025-06-07 16:42:49 - database.connection - INFO - Connected to database: MANH/EDR_System
+2025-06-07 16:42:49 - database.connection - INFO - Connected to database: MANH/EDR_System
+2025-06-07 16:42:49 - database.connection - INFO - Connected to database: MANH/EDR_System
+2025-06-07 16:42:49 - database.connection - INFO - Connected to database: MANH/EDR_System
+2025-06-07 16:42:49 - RULE_ENGINE - INFO - STRUCTURED_LOG: {'component': 'RULE_ENGINE', 'event_type': 'rules_refreshed', 'message': 'Rules cache refreshed in 0.04s', 'timestamp': '2025-06-07T16:42:49.536461', 'total_rules': 20, 'load_time': 0.03692364692687988}
+2025-06-07 16:42:49 - RULE_ENGINE - INFO - STRUCTURED_LOG: {'component': 'RULE_ENGINE', 'event_type': 'engine_initialized', 'message': 'Rule engine initialized successfully', 'timestamp': '2025-06-07T16:42:49.537015', 'total_rules': 20}
+2025-06-07 16:42:49 - services.socketio_handler - INFO - SocketIO event handlers registered
+2025-06-07 16:42:49 - root - INFO - SocketIO handlers registered successfully
+2025-06-07 16:42:49 - root - INFO - ✅ SocketIO handlers configured
+2025-06-07 16:42:49 - root - INFO - Background tasks started successfully
+2025-06-07 16:42:49 - root - INFO - ✅ Background tasks started
+2025-06-07 16:42:49 - root - INFO - ============================================================
+2025-06-07 16:42:49 - root - INFO - 🎉 EDR Server started successfully!
+2025-06-07 16:42:49 - root - INFO - 📍 Server URL: http://0.0.0.0:5000
+2025-06-07 16:42:49 - root - INFO - 🔌 SocketIO URL: http://0.0.0.0:5000
+2025-06-07 16:42:49 - root - INFO - 📊 Health Check: http://0.0.0.0:5000/health
+2025-06-07 16:42:49 - root - INFO - ============================================================
+2025-06-07 16:42:49 - database.connection - INFO - Connected to database: MANH/EDR_System
+2025-06-07 16:42:49 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.215.24:5000
+2025-06-07 16:42:49 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-06-07 16:43:49 - database.connection - INFO - Connected to database: MANH/EDR_System
+2025-06-07 16:44:21 - database.connection - INFO - Connected to database: MANH/EDR_System
+2025-06-07 16:44:21 - database.connection - INFO - Database connection closed
+2025-06-07 16:44:21 - werkzeug - INFO - 192.168.20.133 - - [07/Jun/2025 16:44:21] "GET /api/health HTTP/1.1" 200 -
+2025-06-07 16:44:21 - werkzeug - INFO - 192.168.20.133 - - [07/Jun/2025 16:44:21] "GET /socket.io/?transport=polling&EIO=4&t=1749289462.6549933 HTTP/1.1" 200 -
+2025-06-07 16:44:21 - SOCKETIO - INFO - STRUCTURED_LOG: {'component': 'SOCKETIO', 'event_type': 'agent_connect', 'message': 'Agent connected from 192.168.20.133', 'timestamp': '2025-06-07T16:44:21.500960', 'sid': 'd-unINi2llSYjSWCAAAB', 'client_ip': '192.168.20.133'}
+2025-06-07 16:44:21 - werkzeug - INFO - 192.168.20.133 - - [07/Jun/2025 16:44:21] "[33mPOST /api/agents/register HTTP/1.1[0m" 404 -
+2025-06-07 16:44:22 - database.connection - INFO - Connected to database: MANH/EDR_System
+2025-06-07 16:44:22 - database.connection - INFO - Database connection closed
+2025-06-07 16:44:22 - werkzeug - INFO - 192.168.20.133 - - [07/Jun/2025 16:44:22] "GET /api/health HTTP/1.1" 200 -
+2025-06-07 16:44:22 - werkzeug - INFO - 192.168.20.133 - - [07/Jun/2025 16:44:22] "GET /socket.io/?transport=polling&EIO=4&t=1749289463.8135886 HTTP/1.1" 200 -
+2025-06-07 16:44:22 - SOCKETIO - INFO - STRUCTURED_LOG: {'component': 'SOCKETIO', 'event_type': 'agent_connect', 'message': 'Agent connected from 192.168.20.133', 'timestamp': '2025-06-07T16:44:22.618983', 'sid': 'Vobji8AlVVC1gOp7AAAD', 'client_ip': '192.168.20.133'}
+2025-06-07 16:44:22 - werkzeug - INFO - 192.168.20.133 - - [07/Jun/2025 16:44:22] "[33mPOST /api/agents/register HTTP/1.1[0m" 404 -
+2025-06-07 16:44:43 - SOCKETIO - INFO - STRUCTURED_LOG: {'component': 'SOCKETIO', 'event_type': 'unknown_disconnect', 'message': 'Unknown agent disconnected', 'timestamp': '2025-06-07T16:44:43.524302', 'sid': 'Vobji8AlVVC1gOp7AAAD'}
+2025-06-07 16:44:43 - werkzeug - INFO - 192.168.20.133 - - [07/Jun/2025 16:44:43] "GET /socket.io/?transport=websocket&EIO=4&sid=VztxCu_tmvmlKiIWAAAC&t=1749289463.8345575 HTTP/1.1" 200 -
+2025-06-07 16:44:43 - SOCKETIO - INFO - STRUCTURED_LOG: {'component': 'SOCKETIO', 'event_type': 'unknown_disconnect', 'message': 'Unknown agent disconnected', 'timestamp': '2025-06-07T16:44:43.536827', 'sid': 'd-unINi2llSYjSWCAAAB'}
+2025-06-07 16:44:43 - werkzeug - INFO - 192.168.20.133 - - [07/Jun/2025 16:44:43] "GET /socket.io/?transport=websocket&EIO=4&sid=thv7f5AGwTfjbEPXAAAA&t=1749289462.6885023 HTTP/1.1" 200 -
+2025-06-07 16:44:49 - database.connection - INFO - Connected to database: MANH/EDR_System
+2025-06-07 16:45:30 - root - INFO - Received signal 2, shutting down...
+2025-06-07 16:45:30 - root - INFO - Starting server cleanup...
+2025-06-07 16:45:30 - services.socketio_handler - INFO - SocketIO handler cleanup completed
+2025-06-07 16:45:30 - root - INFO - Server cleanup completed
+2025-06-07 16:45:30 - root - INFO - Starting server cleanup...
+2025-06-07 16:45:30 - services.socketio_handler - INFO - SocketIO handler cleanup completed
+2025-06-07 16:45:30 - root - INFO - Server cleanup completed
+2025-06-07 16:45:30 - root - INFO - Starting server cleanup...
+2025-06-07 16:45:30 - services.socketio_handler - INFO - SocketIO handler cleanup completed
+2025-06-07 16:45:30 - root - INFO - Server cleanup completed
+2025-06-07 16:45:33 - root - INFO - Logging initialized - Level: INFO
+2025-06-07 16:45:33 - root - INFO - Log file: logs/server.log
+2025-06-07 16:45:33 - root - INFO - ============================================================
+2025-06-07 16:45:33 - root - INFO - 🚀 Starting EDR Server
+2025-06-07 16:45:33 - root - INFO - ============================================================
+2025-06-07 16:45:33 - database.connection - INFO - Connected to database: MANH/EDR_System
+2025-06-07 16:45:33 - root - INFO - Database connection test: SUCCESS
+2025-06-07 16:45:33 - database.connection - INFO - Database connection closed
+2025-06-07 16:45:33 - root - INFO - ✅ Flask application created
+2025-06-07 16:45:33 - root - INFO - ✅ Routes and error handlers configured
+2025-06-07 16:45:33 - root - INFO - All API blueprints registered successfully
+2025-06-07 16:45:33 - root - INFO - ✅ API blueprints registered
+2025-06-07 16:45:33 - database.connection - INFO - Connected to database: MANH/EDR_System
+2025-06-07 16:45:33 - database.connection - INFO - Connected to database: MANH/EDR_System
+2025-06-07 16:45:33 - database.connection - INFO - Connected to database: MANH/EDR_System
+2025-06-07 16:45:33 - database.connection - INFO - Connected to database: MANH/EDR_System
+2025-06-07 16:45:33 - database.connection - INFO - Connected to database: MANH/EDR_System
+2025-06-07 16:45:33 - RULE_ENGINE - INFO - STRUCTURED_LOG: {'component': 'RULE_ENGINE', 'event_type': 'rules_refreshed', 'message': 'Rules cache refreshed in 0.03s', 'timestamp': '2025-06-07T16:45:33.693688', 'total_rules': 20, 'load_time': 0.03222393989562988}
+2025-06-07 16:45:33 - RULE_ENGINE - INFO - STRUCTURED_LOG: {'component': 'RULE_ENGINE', 'event_type': 'engine_initialized', 'message': 'Rule engine initialized successfully', 'timestamp': '2025-06-07T16:45:33.694174', 'total_rules': 20}
+2025-06-07 16:45:33 - services.socketio_handler - INFO - SocketIO event handlers registered
+2025-06-07 16:45:33 - root - INFO - SocketIO handlers registered successfully
+2025-06-07 16:45:33 - root - INFO - ✅ SocketIO handlers configured
+2025-06-07 16:45:33 - root - INFO - Background tasks started successfully
+2025-06-07 16:45:33 - root - INFO - ✅ Background tasks started
+2025-06-07 16:45:33 - root - INFO - ============================================================
+2025-06-07 16:45:33 - root - INFO - 🎉 EDR Server started successfully!
+2025-06-07 16:45:33 - root - INFO - 📍 Server URL: http://0.0.0.0:5000
+2025-06-07 16:45:33 - root - INFO - 🔌 SocketIO URL: http://0.0.0.0:5000
+2025-06-07 16:45:33 - root - INFO - 📊 Health Check: http://0.0.0.0:5000/health
+2025-06-07 16:45:33 - root - INFO - ============================================================
+2025-06-07 16:45:33 - database.connection - INFO - Connected to database: MANH/EDR_System
+2025-06-07 16:45:33 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.215.24:5000
+2025-06-07 16:45:33 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-06-07 16:45:42 - database.connection - INFO - Connected to database: MANH/EDR_System
+2025-06-07 16:45:42 - database.connection - INFO - Database connection closed
+2025-06-07 16:45:42 - werkzeug - INFO - 192.168.20.133 - - [07/Jun/2025 16:45:42] "GET /api/health HTTP/1.1" 200 -
+2025-06-07 16:45:42 - werkzeug - INFO - 192.168.20.133 - - [07/Jun/2025 16:45:42] "GET /socket.io/?transport=polling&EIO=4&t=1749289543.4720268 HTTP/1.1" 200 -
+2025-06-07 16:45:42 - SOCKETIO - INFO - STRUCTURED_LOG: {'component': 'SOCKETIO', 'event_type': 'agent_connect', 'message': 'Agent connected from 192.168.20.133', 'timestamp': '2025-06-07T16:45:42.356160', 'sid': 'o4Py3HV3eACai3p5AAAB', 'client_ip': '192.168.20.133'}
+2025-06-07 16:45:42 - werkzeug - INFO - 192.168.20.133 - - [07/Jun/2025 16:45:42] "[31m[1mPOST /api/agents/register HTTP/1.1[0m" 400 -
+2025-06-07 16:45:43 - database.connection - INFO - Connected to database: MANH/EDR_System
+2025-06-07 16:45:43 - database.connection - INFO - Database connection closed
+2025-06-07 16:45:43 - werkzeug - INFO - 192.168.20.133 - - [07/Jun/2025 16:45:43] "GET /api/health HTTP/1.1" 200 -
+2025-06-07 16:45:44 - werkzeug - INFO - 192.168.20.133 - - [07/Jun/2025 16:45:44] "GET /socket.io/?transport=polling&EIO=4&t=1749289545.2983642 HTTP/1.1" 200 -
+2025-06-07 16:45:44 - SOCKETIO - INFO - STRUCTURED_LOG: {'component': 'SOCKETIO', 'event_type': 'agent_connect', 'message': 'Agent connected from 192.168.20.133', 'timestamp': '2025-06-07T16:45:44.187672', 'sid': 'FVpRWD4DPWNIOaLIAAAD', 'client_ip': '192.168.20.133'}
+2025-06-07 16:45:44 - werkzeug - INFO - 192.168.20.133 - - [07/Jun/2025 16:45:44] "[31m[1mPOST /api/agents/register HTTP/1.1[0m" 400 -
+2025-06-07 16:46:04 - SOCKETIO - INFO - STRUCTURED_LOG: {'component': 'SOCKETIO', 'event_type': 'unknown_disconnect', 'message': 'Unknown agent disconnected', 'timestamp': '2025-06-07T16:46:04.651279', 'sid': 'o4Py3HV3eACai3p5AAAB'}
+2025-06-07 16:46:04 - werkzeug - INFO - 192.168.20.133 - - [07/Jun/2025 16:46:04] "GET /socket.io/?transport=websocket&EIO=4&sid=E7-SFhuA2fxwxSJ3AAAA&t=1749289543.512704 HTTP/1.1" 200 -
+2025-06-07 16:46:05 - SOCKETIO - INFO - STRUCTURED_LOG: {'component': 'SOCKETIO', 'event_type': 'unknown_disconnect', 'message': 'Unknown agent disconnected', 'timestamp': '2025-06-07T16:46:05.108589', 'sid': 'FVpRWD4DPWNIOaLIAAAD'}
+2025-06-07 16:46:05 - werkzeug - INFO - 192.168.20.133 - - [07/Jun/2025 16:46:05] "GET /socket.io/?transport=websocket&EIO=4&sid=EQCPGzHLZbdzg14oAAAC&t=1749289545.3630545 HTTP/1.1" 200 -
+2025-06-07 16:46:33 - database.connection - INFO - Connected to database: MANH/EDR_System
+2025-06-07 16:47:33 - database.connection - ERROR - Database connection failed: ('08S01', '[08S01] [Microsoft][ODBC Driver 17 for SQL Server]Communication link failure (0) (SQLExecDirectW); [08S01] [Microsoft][ODBC Driver 17 for SQL Server]The connection is broken and recovery is not possible. The client driver attempted to recover the connection one or more times and all attempts failed. Increase the value of ConnectRetryCount to increase the number of recovery attempts. (0)')
+2025-06-07 16:47:33 - database.connection - INFO - Database connection closed
+2025-06-07 16:47:33 - database.connection - ERROR - Database connection failed: ('08S01', '[08S01] [Microsoft][ODBC Driver 17 for SQL Server]Communication link failure (0) (SQLExecDirectW); [08S01] [Microsoft][ODBC Driver 17 for SQL Server]The connection is broken and recovery is not possible. The client driver attempted to recover the connection one or more times and all attempts failed. Increase the value of ConnectRetryCount to increase the number of recovery attempts. (0)')
+2025-06-07 16:47:47 - root - INFO - Received signal 2, shutting down...
+2025-06-07 16:47:47 - root - INFO - Starting server cleanup...
+2025-06-07 16:47:47 - services.socketio_handler - INFO - SocketIO handler cleanup completed
+2025-06-07 16:47:47 - root - INFO - Server cleanup completed
+2025-06-07 16:47:47 - root - INFO - Starting server cleanup...
+2025-06-07 16:47:47 - services.socketio_handler - INFO - SocketIO handler cleanup completed
+2025-06-07 16:47:47 - root - INFO - Server cleanup completed
+2025-06-07 16:47:47 - root - INFO - Starting server cleanup...
+2025-06-07 16:47:47 - services.socketio_handler - INFO - SocketIO handler cleanup completed
+2025-06-07 16:47:47 - root - INFO - Server cleanup completed
+2025-06-07 16:47:49 - root - INFO - Logging initialized - Level: INFO
+2025-06-07 16:47:49 - root - INFO - Log file: logs/server.log
+2025-06-07 16:47:49 - root - INFO - ============================================================
+2025-06-07 16:47:49 - root - INFO - 🚀 Starting EDR Server
+2025-06-07 16:47:49 - root - INFO - ============================================================
+2025-06-07 16:47:50 - database.connection - INFO - Connected to database: MANH/EDR_System
+2025-06-07 16:47:50 - root - INFO - Database connection test: SUCCESS
+2025-06-07 16:47:50 - database.connection - INFO - Database connection closed
+2025-06-07 16:47:50 - root - INFO - ✅ Flask application created
+2025-06-07 16:47:50 - root - INFO - ✅ Routes and error handlers configured
+2025-06-07 16:47:50 - root - INFO - All API blueprints registered successfully
+2025-06-07 16:47:50 - root - INFO - ✅ API blueprints registered
+2025-06-07 16:47:50 - database.connection - INFO - Connected to database: MANH/EDR_System
+2025-06-07 16:47:50 - database.connection - INFO - Connected to database: MANH/EDR_System
+2025-06-07 16:47:50 - database.connection - INFO - Connected to database: MANH/EDR_System
+2025-06-07 16:47:50 - database.connection - INFO - Connected to database: MANH/EDR_System
+2025-06-07 16:47:50 - database.connection - INFO - Connected to database: MANH/EDR_System
+2025-06-07 16:47:50 - RULE_ENGINE - INFO - STRUCTURED_LOG: {'component': 'RULE_ENGINE', 'event_type': 'rules_refreshed', 'message': 'Rules cache refreshed in 0.06s', 'timestamp': '2025-06-07T16:47:50.209652', 'total_rules': 20, 'load_time': 0.055710792541503906}
+2025-06-07 16:47:50 - RULE_ENGINE - INFO - STRUCTURED_LOG: {'component': 'RULE_ENGINE', 'event_type': 'engine_initialized', 'message': 'Rule engine initialized successfully', 'timestamp': '2025-06-07T16:47:50.210183', 'total_rules': 20}
+2025-06-07 16:47:50 - services.socketio_handler - INFO - SocketIO event handlers registered
+2025-06-07 16:47:50 - root - INFO - SocketIO handlers registered successfully
+2025-06-07 16:47:50 - root - INFO - ✅ SocketIO handlers configured
+2025-06-07 16:47:50 - root - INFO - Background tasks started successfully
+2025-06-07 16:47:50 - root - INFO - ✅ Background tasks started
+2025-06-07 16:47:50 - root - INFO - ============================================================
+2025-06-07 16:47:50 - root - INFO - 🎉 EDR Server started successfully!
+2025-06-07 16:47:50 - root - INFO - 📍 Server URL: http://0.0.0.0:5000
+2025-06-07 16:47:50 - root - INFO - 🔌 SocketIO URL: http://0.0.0.0:5000
+2025-06-07 16:47:50 - root - INFO - 📊 Health Check: http://0.0.0.0:5000/health
+2025-06-07 16:47:50 - root - INFO - ============================================================
+2025-06-07 16:47:50 - database.connection - INFO - Connected to database: MANH/EDR_System
+2025-06-07 16:47:50 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.215.24:5000
+2025-06-07 16:47:50 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-06-07 16:48:32 - database.connection - INFO - Connected to database: MANH/EDR_System
+2025-06-07 16:48:32 - database.connection - INFO - Database connection closed
+2025-06-07 16:48:32 - werkzeug - INFO - 192.168.20.133 - - [07/Jun/2025 16:48:32] "GET /api/health HTTP/1.1" 200 -
+2025-06-07 16:48:33 - werkzeug - INFO - 192.168.20.133 - - [07/Jun/2025 16:48:33] "GET /socket.io/?transport=polling&EIO=4&t=1749289714.2304878 HTTP/1.1" 200 -
+2025-06-07 16:48:33 - SOCKETIO - INFO - STRUCTURED_LOG: {'component': 'SOCKETIO', 'event_type': 'agent_connect', 'message': 'Agent connected from 192.168.20.133', 'timestamp': '2025-06-07T16:48:33.088537', 'sid': 'OW4hxGw2Cn061c6VAAAB', 'client_ip': '192.168.20.133'}
+2025-06-07 16:48:33 - werkzeug - INFO - 192.168.20.133 - - [07/Jun/2025 16:48:33] "[31m[1mPOST /api/agents/register HTTP/1.1[0m" 400 -
+2025-06-07 16:48:34 - database.connection - INFO - Connected to database: MANH/EDR_System
+2025-06-07 16:48:34 - database.connection - INFO - Database connection closed
+2025-06-07 16:48:34 - werkzeug - INFO - 192.168.20.133 - - [07/Jun/2025 16:48:34] "GET /api/health HTTP/1.1" 200 -
+2025-06-07 16:48:34 - werkzeug - INFO - 192.168.20.133 - - [07/Jun/2025 16:48:34] "GET /socket.io/?transport=polling&EIO=4&t=1749289715.4972472 HTTP/1.1" 200 -
+2025-06-07 16:48:34 - SOCKETIO - INFO - STRUCTURED_LOG: {'component': 'SOCKETIO', 'event_type': 'agent_connect', 'message': 'Agent connected from 192.168.20.133', 'timestamp': '2025-06-07T16:48:34.360420', 'sid': 'W561UOLo1L3k85FcAAAD', 'client_ip': '192.168.20.133'}
+2025-06-07 16:48:34 - werkzeug - INFO - 192.168.20.133 - - [07/Jun/2025 16:48:34] "[31m[1mPOST /api/agents/register HTTP/1.1[0m" 400 -
+2025-06-07 16:48:50 - database.connection - INFO - Connected to database: MANH/EDR_System
+2025-06-07 16:48:55 - SOCKETIO - INFO - STRUCTURED_LOG: {'component': 'SOCKETIO', 'event_type': 'unknown_disconnect', 'message': 'Unknown agent disconnected', 'timestamp': '2025-06-07T16:48:55.141190', 'sid': 'OW4hxGw2Cn061c6VAAAB'}
+2025-06-07 16:48:55 - werkzeug - INFO - 192.168.20.133 - - [07/Jun/2025 16:48:55] "GET /socket.io/?transport=websocket&EIO=4&sid=syoAkySkSYZ35TeDAAAA&t=1749289714.2681658 HTTP/1.1" 200 -
+2025-06-07 16:49:00 - SOCKETIO - INFO - STRUCTURED_LOG: {'component': 'SOCKETIO', 'event_type': 'unknown_disconnect', 'message': 'Unknown agent disconnected', 'timestamp': '2025-06-07T16:49:00.000894', 'sid': 'W561UOLo1L3k85FcAAAD'}
+2025-06-07 16:49:00 - werkzeug - INFO - 192.168.20.133 - - [07/Jun/2025 16:49:00] "GET /socket.io/?transport=websocket&EIO=4&sid=ngkydY-sxpIb7AiTAAAC&t=1749289715.5575044 HTTP/1.1" 200 -
+2025-06-07 16:49:50 - database.connection - INFO - Connected to database: MANH/EDR_System
+2025-06-07 16:50:19 - root - INFO - Received signal 2, shutting down...
+2025-06-07 16:50:19 - root - INFO - Starting server cleanup...
+2025-06-07 16:50:20 - services.socketio_handler - INFO - SocketIO handler cleanup completed
+2025-06-07 16:50:20 - root - INFO - Server cleanup completed
+2025-06-07 16:50:20 - root - INFO - Starting server cleanup...
+2025-06-07 16:50:20 - services.socketio_handler - INFO - SocketIO handler cleanup completed
+2025-06-07 16:50:20 - root - INFO - Server cleanup completed
+2025-06-07 16:50:20 - root - INFO - Starting server cleanup...
+2025-06-07 16:50:20 - services.socketio_handler - INFO - SocketIO handler cleanup completed
+2025-06-07 16:50:20 - root - INFO - Server cleanup completed

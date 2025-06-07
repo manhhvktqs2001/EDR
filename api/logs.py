@@ -1,11 +1,17 @@
+"""
+Logs API Endpoints
+Xử lý tất cả API calls liên quan đến logs
+"""
+
 from flask import Blueprint, request, jsonify
 from datetime import datetime, timedelta
 import logging
 import json
 from database.logs import LogDB
 from database.agents import AgentDB
+from utils.helpers import create_success_response, create_error_response, paginate_results
 
-logs_api = Blueprint('logs_api', __name__, url_prefix='/logs')
+logs_api = Blueprint('logs_api', __name__, url_prefix='/api/logs')
 logger = logging.getLogger(__name__)
 
 @logs_api.route('', methods=['GET'])

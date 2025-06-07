@@ -174,15 +174,15 @@ class EDRServer:
                 "timestamp": datetime.now().isoformat(),
                 "status": "healthy",
                 "endpoints": {
-                    "agents": "/agents",
-                    "alerts": "/alerts", 
-                    "rules": "/rules",
-                    "dashboard": "/dashboard",
-                    "logs": "/logs"
+                    "agents": "/api/agents",
+                    "alerts": "/api/alerts", 
+                    "rules": "/api/rules",
+                    "dashboard": "/api/dashboard",
+                    "logs": "/api/logs"
                 }
             }
         
-        @self.app.route('/health')
+        @self.app.route('/api/health')
         def health_check():
             """Health check endpoint"""
             try:

@@ -11,7 +11,7 @@ from database.alerts import AlertDB
 from services.alert_service import AlertService
 from utils.helpers import create_success_response, create_error_response, paginate_results, safe_int
 
-alerts_api = Blueprint('alerts_api', __name__, url_prefix='/alerts')
+alerts_api = Blueprint('alerts_api', __name__, url_prefix='/api/alerts')
 logger = logging.getLogger(__name__)
 
 @alerts_api.route('', methods=['GET'])

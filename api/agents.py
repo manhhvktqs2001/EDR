@@ -10,7 +10,7 @@ from database.agents import AgentDB
 from services.agent_service import AgentService
 from utils.helpers import validate_hostname, create_success_response, create_error_response, paginate_results
 
-agents_api = Blueprint('agents_api', __name__, url_prefix='/agents')
+agents_api = Blueprint('agents_api', __name__, url_prefix='/api/agents')
 logger = logging.getLogger(__name__)
 
 @agents_api.route('', methods=['GET'])
@@ -74,26 +74,33 @@ def get_agent(hostname):
         logger.error(f"Error getting agent {hostname}: {e}")
         return jsonify(create_error_response(str(e))), 500
 
-@agents_api.route('', methods=['POST'])
+@agents_api.route('/register', methods=['POST'])
 def register_agent():
-    """Đăng ký agent mới (thường được gọi bởi agent)"""
+    """Đăng ký agent mới"""
     try:
         data = request.get_json()
         if not data:
             return jsonify(create_error_response("No data provided")), 400
-        
-        agent_db = AgentDB()
-        success = agent_db.register_agent(data)
-        
-        if success:
-            hostname = data.get('hostname')
-            return jsonify(create_success_response(
-                {'hostname': hostname}, 
-                f"Agent {hostname} registered successfully"
-            )), 201
-        else:
-            return jsonify(create_error_response("Failed to register agent")), 500
             
+        required_fields = ['hostname', 'os_type', 'version']
+        for field in required_fields:
+            if field not in data:
+                return jsonify(create_error_response(f"Missing required field: {field}")), 400
+        
+        agent_service = AgentService()
+        result = agent_service.register_agent(
+            hostname=data['hostname'],
+            os_type=data['os_type'],
+            version=data['version'],
+            ip_address=request.remote_addr,
+            additional_info=data.get('additional_info', {})
+        )
+        
+        if 'error' in result:
+            return jsonify(create_error_response(result['error'])), 400
+            
+        return jsonify(create_success_response(result)), 201
+        
     except Exception as e:
         logger.error(f"Error registering agent: {e}")
         return jsonify(create_error_response(str(e))), 500

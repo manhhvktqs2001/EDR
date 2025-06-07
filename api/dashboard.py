@@ -1,6 +1,6 @@
 """
 Dashboard API Endpoints
-Xử lý tất cả API calls cho dashboard data
+Xử lý tất cả API calls liên quan đến dashboard
 """
 
 from flask import Blueprint, request, jsonify
@@ -14,7 +14,7 @@ from services.agent_service import AgentService
 from services.alert_service import AlertService
 from utils.helpers import create_success_response, create_error_response, safe_int
 
-dashboard_api = Blueprint('dashboard_api', __name__, url_prefix='/dashboard')
+dashboard_api = Blueprint('dashboard_api', __name__, url_prefix='/api/dashboard')
 logger = logging.getLogger(__name__)
 
 @dashboard_api.route('', methods=['GET'])

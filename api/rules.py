@@ -9,7 +9,7 @@ import logging
 from database.rules import RuleDB
 from utils.helpers import create_success_response, create_error_response, paginate_results, safe_int
 
-rules_api = Blueprint('rules_api', __name__, url_prefix='/rules')
+rules_api = Blueprint('rules_api', __name__, url_prefix='/api/rules')
 logger = logging.getLogger(__name__)
 
 @rules_api.route('', methods=['GET'])
